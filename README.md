@@ -56,24 +56,6 @@ H&D Hex Editor - A hex editor (or binary file editor or byte editor) is a comput
 
 13.) You can find the C# to armeabi-v7a reference info on the bottom of this document.
 
-14.)  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #
 # C# TO ARMEABI-V7a 32-bit
 #
@@ -113,7 +95,7 @@ Hex: 00 00 A0 E3 1E FF 2F E1
 # Force Freeze a Number/Int
 
 What is an Int:
-Int stands for Integer which is just a fancy word for a basic number. These numbers can come in multiple “flavors” of Int8, Int16, Int32 and Int64. Depending on how high of a number the game needs to display will determine which Integer type is declared. In 90% of IL2CPP hacking I’ve personally done, the only time I see Int64 is when its used for Time. Other than that, I always see Int32 or Int16. Either should work with the code below.
+Int stands for Integer which is just a fancy word for a basic number. These numbers can come in multiple “flavors” of Int8, Int16, Int32 and Int64. Depending on how high of a number the game needs to display will determine which Integer type is declared. In 90% of IL2CPP hacking done, the only time we see Int64 is when its used for Time. Other than that, I always see Int32 or Int16. Either should work with the code below.
 
 C# Code
 
