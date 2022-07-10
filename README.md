@@ -8,6 +8,7 @@ STEP BY STEP GUIDE ON HOW TO EXPLOIT UNITY AND ANDROID GAMES/APPS
 # GENERAL TOOLS SETUP
 #
 git clone https://github.com/gepthecoder/game-hacking
+
 cd game-hacking
 #
 In main directory you'll find APKTool & dnSpyware. Extract both contents of zip files and install APKTool
@@ -23,4 +24,6 @@ dnSpyware - is a debugger and .NET assembly editor. You can use it to edit and d
 #
 
 1.) Find a mobile game on Google Play Store
+
 2.) Copy Link and navigate to apkpure.com or apmmirror.com
+
