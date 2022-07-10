@@ -11,8 +11,7 @@ git clone https://github.com/gepthecoder/game-hacking
 
 cd game-hacking
 #
-In main directory you'll find HexEditor, APKTool, dnSpyware & Il2CppDumper. Extract contents of zip files and install APKTool & Hex Editor of your choice.
-on your computer.
+In main directory you'll find HexEditor, APKTool, dnSpyware & Il2CppDumper. Extract contents of zip files and install APKTool & Hex Editor of your choice on your computer.
 #
 APK Easy Tool - is a lightweight GUI application that enables you to manage, sign, compile and decompile the APK files for the apps you are working on. Its used for reverse engineering 3rd party, closed, binary Android apps.
 #
@@ -42,7 +41,7 @@ H&D Hex Editor - A hex editor (or binary file editor or byte editor) is a comput
 5.) Create Internals folder and find the 32bit - armeabi-v7a/libil2cpp.so located in libs folder -> drag&drop it to Internals folder you have just created.
 
 6.) Go to assets/bin/Data/Managed/Metadata and copy the global-metadata.dat file into Internals folder. Boom we are good to go to DUMP the files.
-
+ 
 7.) Copy the extracted Il2CppDumper content into Internals folder.
 
 8.) Run Il2CppDumper-x86.exe and select libil2cpp.so file first, then the global-metadata.dat
@@ -51,11 +50,13 @@ H&D Hex Editor - A hex editor (or binary file editor or byte editor) is a comput
 
 10.) Open dnSpy.exe and drag&drop Assembly-CSharp.dll into the Assembly Explorer.
 
-11.) Note: you will not get code from idle to cpp, that means you cannot get it and compile it back.
+11.) Note: you will not get code from idle to cpp, that means you cannot get it and compile it back. Soo...
 
 12.) At the same time open the libil2cpp.so with the hex editor of your choice (simply drag it to hex editor).
 
-13.) You can find the C# to armeabi-v7a on the bottom of this document.
+13.) You can find the C# to armeabi-v7a reference info on the bottom of this document.
+
+14.)  
 
 
 
@@ -93,7 +94,7 @@ MOV R0,#1
 BX LR
 Hex: 01 00 A0 E3 1E FF 2F E1
 
-#Always Return False as a Boolean
+# Always Return False as a Boolean
 
 What is a Boolean: See above
 
@@ -109,7 +110,7 @@ MOV R0,#0
 BX LR
 Hex: 00 00 A0 E3 1E FF 2F E1
 
-#Force Freeze a Number/Int
+# Force Freeze a Number/Int
 
 What is an Int:
 Int stands for Integer which is just a fancy word for a basic number. These numbers can come in multiple “flavors” of Int8, Int16, Int32 and Int64. Depending on how high of a number the game needs to display will determine which Integer type is declared. In 90% of IL2CPP hacking I’ve personally done, the only time I see Int64 is when its used for Time. Other than that, I always see Int32 or Int16. Either should work with the code below.
@@ -126,7 +127,7 @@ MOV R0, #999
 BX LR
 Hex: E7 03 00 E3 1E FF 2F E1
 
-#Hex for Unlimited Money Int:
+# Hex for Unlimited Money Int:
 
 01 04 A0 E3 1E FF 2F E1
 Force Freeze a Float Number/Int
