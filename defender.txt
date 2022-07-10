@@ -1,0 +1,13 @@
+legendary defender test features for mod:
+
+-Controller
+--EnemiesAreAlive()::bool -> force always false xD
+
+-ArcherController
+--LoadEnemies()::bool -> force always false
+
+-PlayerHealth
+--DamagePlayer()::int -> always 0
+
+-SkillManager
+--ShieldReady()::bool -> always true
