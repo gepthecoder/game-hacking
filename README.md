@@ -77,7 +77,7 @@ H&D Hex Editor - A hex editor (or binary file editor or byte editor) is a comput
 #
 # C# TO ARMEABI-V7a 32-bit
 #
-#Always Return True as a Boolean
+# Always Return True as a Boolean
 
 What is a Boolean:
 A Boolean is simply a True or False statement. Without realizing it, you think with bool’s in your day to day life, so these are easy to understand. They’re, in a sense, the same as a Yes or No question/answer. If someone asks you  “Can you please pass the butter?” at dinner, Yes would be the same as “true”, No would be the sale as “false!”
