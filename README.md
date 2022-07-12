@@ -32,16 +32,26 @@ H&D Hex Editor - A hex editor (or binary file editor or byte editor) is a comput
 
 1.) Find a mobile game on Google Play Store
 
-2.) Copy Link and navigate to apkpure.com | apkgk.com (generate apk based on device 32bit or 64bit) | apkmirror.com 
+2.) Copy Link and navigate to apkpure.com | apkgk.com (generate apk based on device 32bit or 64bit) | apkmirror.com
+
+![image](https://user-images.githubusercontent.com/38008294/178573632-450cade6-fad5-40a9-a20f-2e03c4765084.png)
 
 3.) Paste link into search box and it'll pull up the specific apk with available versions - Download it
 
+![image](https://user-images.githubusercontent.com/38008294/178573509-ecdc4c2f-a677-4be4-b32a-1705427dd427.png)
+
 4.) Common practice is to create a BACKUP File, once you did that open the apk file with your favourite archiver: 7zip, winzip, winrar etc..
+
+![image](https://user-images.githubusercontent.com/38008294/178574288-992dd651-b96e-4364-8f75-942c92d82ed3.png)
 
 5.) Create Internals folder and find the 32bit - armeabi-v7a/libil2cpp.so located in libs folder -> drag&drop it to Internals folder you have just created.
 
+![image](https://user-images.githubusercontent.com/38008294/178574711-623e5b31-9e17-4259-a6fc-e30e5e8b6927.png)
+
 6.) Go to assets/bin/Data/Managed/Metadata and copy the global-metadata.dat file into Internals folder. Boom we are good to go to DUMP the files.
  
+![image](https://user-images.githubusercontent.com/38008294/178574783-f2dcf3db-a724-456f-bb7a-4e27e31d7d3c.png)
+
 7.) Copy the extracted Il2CppDumper content into Internals folder.
 
 8.) Run Il2CppDumper-x86.exe and select libil2cpp.so file first, then the global-metadata.dat
