@@ -123,6 +123,9 @@ MOV R0, #999
 BX LR
 Hex: E7 03 00 E3 1E FF 2F E1
 
+Note: to apply any number go to decimalToHex converter. Example: 999 in hex is 03E7 so we substitute only first four hex numbers in reversed manner.
+
+
 # Hex for Unlimited Money Int:
 
 01 04 A0 E3 1E FF 2F E1
