@@ -56,6 +56,20 @@ H&D Hex Editor - A hex editor (or binary file editor or byte editor) is a comput
 
 13.) You can find the C# to armeabi-v7a reference info on the bottom of this document.
 
+14.) To start expoloiting the app you need to find vunreabilities in the dll via dnSpy software.
+
+15.) Once you found what you want to manipulate, open hex editor window and search for the function address location - CTRL+G
+
+16.) Extrapolate the desired hex code bellow and apply it to the existing hex file with CTRL+B
+
+17.) When you are done, dont forget to replace the libil2cpp.so file in the apk directory.
+
+18.) The final step is to open APK Easy Tool and sign the newly updated apk.
+
+19.) Have a beer, you have done it! ;) 
+
+
+
 #
 # C# TO ARMEABI-V7a 32-bit
 #
