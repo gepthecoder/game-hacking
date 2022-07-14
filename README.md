@@ -56,25 +56,51 @@ H&D Hex Editor - A hex editor (or binary file editor or byte editor) is a comput
 
 8.) Run Il2CppDumper-x86.exe and select libil2cpp.so file first, then the global-metadata.dat
 
+![image](https://user-images.githubusercontent.com/38008294/179053041-45ddbe9b-a9f8-43e1-af9b-3e96553bb9a1.png)
+
+![image](https://user-images.githubusercontent.com/38008294/179053238-1a86d9db-ed00-4083-9da7-8226c61cfae4.png)
+
+![image](https://user-images.githubusercontent.com/38008294/179053264-9a37cfaa-f310-4f9d-91e5-81ee27c59909.png)
+
 9.) Success! After the dump is done, you can access dlls in generated DummyDll folder.
 
+![image](https://user-images.githubusercontent.com/38008294/179053412-4aa18186-5295-47e8-a32c-b1016070dcfa.png)
+
 10.) Open dnSpy.exe and drag&drop Assembly-CSharp.dll into the Assembly Explorer.
+
+![image](https://user-images.githubusercontent.com/38008294/179053835-9f4dd06c-012c-48b7-87b4-4e638b18e6e8.png)
 
 11.) Note: you will not get code from idle to cpp, that means you cannot get it and compile it back. Soo...
 
 12.) At the same time open the libil2cpp.so with the hex editor of your choice (simply drag it to hex editor).
 
+![image](https://user-images.githubusercontent.com/38008294/179054686-92ab3483-51db-43c2-8e73-91dc834d7a99.png)
+
 13.) You can find the C# to armeabi-v7a reference info on the bottom of this document.
 
 14.) To start expoloiting the app you need to find vunreabilities in the dll via dnSpy software.
 
+![image](https://user-images.githubusercontent.com/38008294/179053714-05678915-bb1a-48cb-a557-c08b6025f58b.png)
+
 15.) Once you found what you want to manipulate, open hex editor window and search for the function address location - CTRL+G
 
-16.) Extrapolate the desired hex code bellow and apply it to the existing hex file with CTRL+B
+![image](https://user-images.githubusercontent.com/38008294/179055094-c5bb53c5-817e-4bd5-a22e-dff9e074abd9.png)
 
-17.) When you are done, dont forget to replace the libil2cpp.so file in the apk directory.
+![image](https://user-images.githubusercontent.com/38008294/179056185-f33ea5e3-712c-4f44-9bdf-4d73284c1b64.png)
+
+![image](https://user-images.githubusercontent.com/38008294/179056772-47403d7a-a6ec-4ebd-ad99-7b2d92ba3b80.png)
+
+16.) Extrapolate the desired float - hex code above and apply it to the existing hex file with CTRL+B
+
+![image](https://user-images.githubusercontent.com/38008294/179057424-3033cca9-f8b7-49cd-9bbc-9742738e673f.png)
+
+17.) When you are done, dont forget to save it and replace the libil2cpp.so file in the apk directory.
+
+![image](https://user-images.githubusercontent.com/38008294/179057616-9fcf500f-016a-45c3-ba39-0b9fe31f57a9.png)
 
 18.) The final step is to open APK Easy Tool and sign the newly updated apk.
+
+![image](https://user-images.githubusercontent.com/38008294/179058164-fd54d556-c91d-455d-b497-25f91fa8c7a2.png)
 
 19.) Have a beer, you have done it! ;) 
 
