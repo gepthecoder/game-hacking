@@ -108,7 +108,7 @@ H&D Hex Editor - A hex editor (or binary file editor or byte editor) is a comput
 # UNITY STANDALONE - MONO
 #
 
-Reverse engineering unity games with monobehaviour scripting backend is quite easy and streight-forward.
+Reverse engineering unity games with monobehaviour scripting backend is quite easy and straightforward.
 
 1.) The first step is to find / download a PC game made in unity
 
@@ -133,6 +133,19 @@ Reverse engineering unity games with monobehaviour scripting backend is quite ea
 6.) Right click on a method / class / object you want to change and hit edit with c#
 
 ![Documentation](https://user-images.githubusercontent.com/38008294/179344297-293ef6ed-70d7-41ae-ba16-afb2d3ae79ce.png)
+
+7.) Program your way into anything basically.. 🥷
+
+![image](https://user-images.githubusercontent.com/38008294/179354854-3ef35b49-1e89-4848-b273-0d36ab0e7bc9.png)
+
+![Documentation1](https://user-images.githubusercontent.com/38008294/179354926-57d6e962-85bb-4717-b1d4-1ca72b828344.png)
+
+8.) Dont forget to save your hacked module version
+
+![Documentation2](https://user-images.githubusercontent.com/38008294/179354962-8c831dba-5bed-470c-a73b-e482a6c725df.png)
+
+9.) Have fun! 😅
+
 
 #
 # C# TO ARMEABI-V7a 32-bit
