@@ -104,7 +104,35 @@ H&D Hex Editor - A hex editor (or binary file editor or byte editor) is a comput
 
 19.) Have a beer, you have done it! ;) 
 
+#
+# UNITY STANDALONE - MONO
+#
 
+Reverse engineering unity games with monobehaviour scripting backend is quite easy and streight-forward.
+
+1.) The first step is to find / download a PC game made in unity
+
+![image](https://user-images.githubusercontent.com/38008294/179343930-e5c553b0-c539-4e13-87b7-762190a21c67.png)
+
+2.) Navigate to App/AppData/Managed directory where you'll find the Assembly-CSharp.dll file.
+
+![image](https://user-images.githubusercontent.com/38008294/179344001-8caec3d9-ff3c-4ab3-9221-5e5e18d4670a.png)
+
+3.) Open dnSpy software and select the chosen dll.
+
+![image](https://user-images.githubusercontent.com/38008294/179344065-f0225a38-cc79-4018-a247-13193ec2dab8.png)
+
+4.) Start exlploring for vulnerabilities
+
+![image](https://user-images.githubusercontent.com/38008294/179344102-e09e14c8-4977-4369-96b2-0e40456c531f.png)
+
+5.) Mono is not secure at all.. as you can see, the code is fully accessable and ready to be modded ;)
+
+![image](https://user-images.githubusercontent.com/38008294/179344197-d3d4604a-c46b-4ae6-b81d-9a5a70eca188.png)
+
+6.) Right click on a method / class / object you want to change and hit edit with c#
+
+![Documentation](https://user-images.githubusercontent.com/38008294/179344297-293ef6ed-70d7-41ae-ba16-afb2d3ae79ce.png)
 
 #
 # C# TO ARMEABI-V7a 32-bit
