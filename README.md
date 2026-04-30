@@ -147,81 +147,194 @@ Reverse engineering unity games with monobehaviour scripting backend is quite ea
 9.) Have fun! 😅
 
 
-#
-# C# TO ARMEABI-V7a 32-bit
-#
-# Always Return True as a Boolean
+# 🧠 C# → ARM (armeabi-v7a 32-bit)
+## Understanding What You’re Really Changing
 
-What is a Boolean:
-A Boolean is simply a True or False statement. Without realizing it, you think with bool’s in your day to day life, so these are easy to understand. They’re, in a sense, the same as a Yes or No question/answer. If someone asks you  “Can you please pass the butter?” at dinner, Yes would be the same as “true”, No would be the same as “false!”
+Before you touch a single byte, understand this:
 
-C# Code
+You are **not changing C# code**.
 
-public bool true() {
-return true;
-}
+You are changing what the **CPU believes is true**.
 
-IDA/HEX Code
+Everything below is just different ways of doing that.
 
-MOV R0,#1
-BX LR
-Hex: 01 00 A0 E3 1E FF 2F E1
+---
 
-# Always Return False as a Boolean
+## 🔹 1. Always Return True (Boolean)
 
-What is a Boolean: See above
+### 🧠 C# Code
 
-C# Code
+    public bool IsPremium()
+    {
+        return false;
+    }
 
-public bool false() {
-return false;
-}
+### ⚙️ Assembly
 
-IDA/HEX Code
+    MOV R0, #1
+    BX LR
 
-MOV R0,#0
-BX LR
-Hex: 00 00 A0 E3 1E FF 2F E1
+### 🔢 HEX
 
-# Force Freeze a Number/Int
+    01 00 A0 E3 1E FF 2F E1
 
-What is an Int:
-Int stands for Integer which is just a fancy word for a basic number. These numbers can come in multiple “flavors” of Int8, Int16, Int32 and Int64. Depending on how high of a number the game needs to display will determine which Integer type is declared. In 90% of IL2CPP hacking done, the only time we see Int64 is when its used for Time. Other than that, I always see Int32 or Int16. Either should work with the code below.
+### 🧩 What This Means
 
-C# Code
+- `R0` = return value register  
+- `#1` = any non-zero value = **true**  
 
-public int oInt() {
-return 999;
-}
+👉 Translation:
 
-IDA/HEX Code
+> Always return **true**, no matter the original logic.
 
-MOV R0, #999
-BX LR
-Hex: E7 03 00 E3 1E FF 2F E1
+### 🧠 Why This Works
 
-Note: to apply any number go to decimalToHex converter. Example: 999 in hex is 03E7 so we substitute only first four hex 
-numbers in reversed manner like the example above.
+- Boolean = convention (0 = false, non-zero = true)  
+- Return value is stored in `R0`  
 
-# Hex for Unlimited Money Int:
+### ⚠️ Why This Doesn’t Work
 
-01 04 A0 E3 1E FF 2F E1
-Force Freeze a Float Number/Int
+- Server-side checks may override  
+- Function might be inlined or duplicated  
 
-What is a Float Number/Int:
-As stated above, an Int, aka an Integer, is a fancy word for a number. Although, a Float Int is far different from a boring old Int32. A Float is used in the situation of a number that is constantly changing. For example, in a game where you have a set amount of Race Boost but it depletes as you use it, the number from Max Boost to 0 would be set as a Float as its constantly changing as you earn it or use it. In C# programming, you can tell the simple difference between a Float and a basic Integer simply by if there is a lowercase “f” after the number like below.
-You CAN NOT use Hexidecimal number values longer than 4 characters… for example, you could change this to 437B, but not 437BA.
+---
 
-C# Code
+## 🔹 2. Always Return False (Boolean)
 
-private float oFloat()
-{
-return 999f;
-}
+### 🧠 C# Code
 
-IDA/HEX Code
+    public bool IsAlive()
+    {
+        return true;
+    }
 
-MOV R0, #0x447A
-BX LR
-hex -> 7A 04 04 E3 1E FF 2F E1
+### ⚙️ Assembly
+
+    MOV R0, #0
+    BX LR
+
+### 🔢 HEX
+
+    00 00 A0 E3 1E FF 2F E1
+
+### 🧩 Meaning
+
+- `0` = false  
+
+👉 Translation:
+
+> Always return **false**, regardless of logic.
+
+### 🧠 Why This Works
+
+- Same return convention  
+- Direct override  
+
+### ⚠️ Why This Doesn’t Work
+
+- Game may rely on multiple checks  
+
+---
+
+## 🔹 3. Force Freeze an Integer
+
+### 🧠 C# Code
+
+    public int GetCoins()
+    {
+        return player.coins;
+    }
+
+### ⚙️ Assembly (Typical Pattern)
+
+    LDR R0, [R1,#0x4]
+    BX LR
+
+### 🔢 HEX (example pattern)
+
+    04 00 91 E5 1E FF 2F E1
+
+> Note: exact hex varies depending on offset and compiler.
+
+### 🔥 Patched Version
+
+    MOV R0, #999
+    BX LR
+
+### 🔢 HEX (999 example)
+
+    E7 03 00 E3 1E FF 2F E1
+
+👉 999 (decimal) = 0x03E7 → reversed in little-endian
+
+### 🧩 What’s Really Happening
+
+- Original: read from memory  
+- Patched: return constant  
+
+👉 You are:
+> faking the value, not modifying real data
+
+### ⚠️ Why This Doesn’t Work
+
+- Value may update elsewhere  
+- UI may not use this function  
+- Resets every frame  
+
+---
+
+## 🔹 4. Force Freeze a Float
+
+### 🧠 C# Code
+
+    private float GetBoost()
+    {
+        return boostValue;
+    }
+
+### ⚙️ Assembly
+
+    VLDR S0, [R1,#0x8]
+    VMOV R0, S0
+    BX LR
+
+### 🔥 Patched Version
+
+    MOV R0, #0x447A
+    BX LR
+
+### 🔢 HEX
+
+    7A 04 04 E3 1E FF 2F E1
+
+👉 0x447A ≈ 999.0f (float representation)
+
+### 🧩 Key Insight
+
+- Floats are **bit patterns**, not direct values  
+
+### ⚠️ Why This Doesn’t Work
+
+- Value constantly updated  
+- May be clamped or recalculated  
+- Wrong hex breaks value  
+
+---
+
+## 🔥 Core Patterns
+
+Everything above is one of:
+
+1. Return a constant  
+2. Read from memory  
+3. Override logic  
+
+---
+
+## 🧠 Final Insight
+
+- Functions can mislead you  
+- Memory is the real source of truth  
+
+> Understanding where data comes from is more powerful than forcing what a function returns.
 
